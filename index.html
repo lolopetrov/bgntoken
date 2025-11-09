@@ -78,18 +78,25 @@ loadBGNUSD();
 setInterval(loadBGNUSD, 60000);
 </script>
 
-  <p id="btcprice" style="margin-top:.5rem;font-size:1.1rem;font-weight:600;"></p>
+ <p id="btcprice" style="margin-top:.5rem;font-size:1.1rem;font-weight:600;"></p>
 
 <script>
 async function loadBGNBTC(){
   try{
-    const r = await fetch("https://open.er-api.com/v6/latest/BGN");
-    const j = await r.json();
-    const rateBTC = j.rates.BTC; // BTC = 1 BTC
-    // 1 BGN in BTC = 1 / (BGN per BTC is inverse)
-    // but er-api gives BTC directly as a key relative to base currency
-    const val = rateBTC;
-    document.getElementById("btcprice").innerText = `1 BGN = ${val} BTC`;
+    // 1) BTC en USD
+    const r1 = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd");
+    const j1 = await r1.json();
+    const btc_usd = j1.bitcoin.usd;
+
+    // 2) BGN en USD
+    const r2 = await fetch("https://open.er-api.com/v6/latest/BGN");
+    const j2 = await r2.json();
+    const bgn_usd = j2.rates.USD;
+
+    // 3) 1 BGN en BTC = BGN/USD dividido entre BTC/USD
+    const bgn_btc = bgn_usd / btc_usd;
+
+    document.getElementById("btcprice").innerText = `1 BGN = ${bgn_btc.toFixed(8)} BTC`;
   }catch(e){
     document.getElementById("btcprice").innerText = "BTC rate unavailable";
   }
