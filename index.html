@@ -28,6 +28,28 @@
   <a href="#" id="explorer">contract / explorer link</a>
 </div>
 
+  <p class="lead">Recording the last moments…
+  <div id="timer" style="margin-top:1.5rem;font-size:1.6rem;font-weight:600;"></div>
+
+<script>
+const target = new Date("2026-01-01T00:00:00+01:00").getTime();
+setInterval(()=>{
+  const now   = Date.now();
+  const diff  = target - now;
+  if(diff <= 0){
+    document.getElementById("timer").innerText = "The conversion moment has arrived.";
+    return;
+  }
+  const days  = Math.floor(diff / (1000*60*60*24));
+  const hrs   = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+  const mins  = Math.floor((diff % (1000*60*60)) / (1000*60));
+  const secs  = Math.floor((diff % (1000*60)) / 1000);
+  document.getElementById("timer").innerText =
+    `Days until euro conversion: ${days}d ${hrs}h ${mins}m ${secs}s`;
+},1000);
+</script>
+
+  
 
   <footer>
     <p>BGN — recorded on-chain as a cultural timestamp.</p>
