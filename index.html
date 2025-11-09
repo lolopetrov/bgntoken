@@ -66,17 +66,18 @@ setInterval(()=>{
 <script>
 async function loadBGNUSD(){
   try{
-    const r = await fetch("https://api.exchangerate.host/latest?base=BGN&symbols=USD");
+    const r = await fetch("https://open.er-api.com/v6/latest/BGN");
     const j = await r.json();
     const rate = j.rates.USD;
     document.getElementById("usdprice").innerText = `1 BGN = ${rate.toFixed(4)} USD`;
   }catch(e){
-    document.getElementById("usdprice").innerText = "USD rate unavailable right now";
+    document.getElementById("usdprice").innerText = "USD rate unavailable";
   }
 }
 loadBGNUSD();
-setInterval(loadBGNUSD, 60000); // refresh cada 1 minuto
+setInterval(loadBGNUSD, 60000);
 </script>
+
 
   
 
