@@ -78,6 +78,26 @@ loadBGNUSD();
 setInterval(loadBGNUSD, 60000);
 </script>
 
+  <p id="btcprice" style="margin-top:.5rem;font-size:1.1rem;font-weight:600;"></p>
+
+<script>
+async function loadBGNBTC(){
+  try{
+    const r = await fetch("https://open.er-api.com/v6/latest/BGN");
+    const j = await r.json();
+    const rateBTC = j.rates.BTC; // BTC = 1 BTC
+    // 1 BGN in BTC = 1 / (BGN per BTC is inverse)
+    // but er-api gives BTC directly as a key relative to base currency
+    const val = rateBTC;
+    document.getElementById("btcprice").innerText = `1 BGN = ${val} BTC`;
+  }catch(e){
+    document.getElementById("btcprice").innerText = "BTC rate unavailable";
+  }
+}
+loadBGNBTC();
+setInterval(loadBGNBTC, 60000);
+</script>
+
 
   
 
