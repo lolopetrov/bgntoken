@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8">
+  <title>BGN Token — Наследството на българския лев</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Културен и паричен архив на българския лев след политически наложеното му заменяне с еврото през 2026 г. Записан в блокчейна.">
+  <meta name="keywords" content="BGN,български лев,евро 2026,BGN токен,блокчейн,история на българската валута">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "BGN Token — Наследството на българския лев",
+    "inLanguage": "bg",
+    "about": "Архив на българския лев след политически наложеното му заменяне с еврото през 2026 г.",
+    "description": "Културен и паричен архив, записан в блокчейна.",
+    "url": "https://www.bgntoken.com/bg/"
+  }
+  </script>
+
+  <link rel="canonical" href="https://bgntoken.com/bg/">
+
+  <style>
+    :root { --muted:#666; }
+    body{
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      background:#fff;color:#111;margin:0;padding:48px;
+      font-size:18px;line-height:1.45;max-width:720px
+    }
+    h1{margin:0 0 24px 0;font-size:28px;font-weight:600}
+    a{color:inherit}
+    .links a{display:block;margin:8px 0;padding:6px 0;text-decoration:none;border-bottom:1px solid #000;max-width:340px}
+    footer{margin-top:48px;font-size:13px;color:#555}
+    .archive-box{
+      display:inline-block;
+      padding:14px 16px;
+      border:1px solid #111;
+      background:#faf6ef;
+      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+      font-size:18px;
+      letter-spacing:.5px;
+      margin-top:16px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>BGN Token</h1>
+
+<p>Минимален архив в блокчейна, посветен на българския лев — валута, заменена с еврото през януари 2026 г.</p>
+
+<p>Това не е полезност. Не е финанси. Не е пътна карта.</p>
+<p>Само дигитален артефакт.</p>
+
+<div class="links" style="margin-top:32px">
+  <a href="https://pump.fun/coin/2sJYnBQFaqE7QzDCk7XSfUXJAB9ywZT5PYMn3zkFEBCf">BGN в pump.fun</a>
+  <a href="https://x.com/bgntoken">BGN в X (Twitter)</a>
+  <a href="#" id="explorer">Договор / explorer линк</a>
+</div>
+
+<p class="lead">Моментът на конверсията вече отмина.</p>
+
+<p>Еврото замени лева в реалния свят.  
+Блокчейнът — не.</p>
+
+<p><strong>Време от BGN → EUR конверсията</strong></p>
+
+<div class="archive-box" id="bgnClock">
+  <span id="days">000</span>д :
+  <span id="hours">00</span>ч :
+  <span id="mins">00</span>м :
+  <span id="secs">00</span>с
+</div>
+
+<p style="margin-top:12px;color:var(--muted)">
+Колкото повече време минава, толкова повече левът става архив.
+</p>
+
+<p style="font-size:.9rem;color:var(--muted)">
+Еврото го наложиха.  
+Левът остана в блокчейна.
+</p>
+
+<p style="letter-spacing:1px;color:var(--muted)">BGN-CHAIN-001</p>
+
+<p id="usdprice" style="margin-top:1rem;font-size:1.1rem;font-weight:600;"></p>
+<p id="btcprice" style="margin-top:.5rem;font-size:1.1rem;font-weight:600;"></p>
+
+<footer>
+  <p>BGN — културен архив в блокчейна.</p>
+  <p>Левът остава.</p>
+</footer>
+
+<script>
+const ANCHOR = new Date("2026-01-01T00:00:00Z");
+
+function tick(){
+  const now = new Date();
+  let diff = Math.max(0, now - ANCHOR);
+  const s = Math.floor(diff/1000);
+  const d = Math.floor(s/86400);
+  const h = Math.floor((s%86400)/3600);
+  const m = Math.floor((s%3600)/60);
+  const sec = s%60;
+
+  days.textContent = String(d).padStart(3,"0");
+  hours.textContent = String(h).padStart(2,"0");
+  mins.textContent = String(m).padStart(2,"0");
+  secs.textContent = String(sec).padStart(2,"0");
+}
+setInterval(tick,1000); tick();
+
+async function loadPrices(){
+  try{
+    const r1 = await fetch("https://open.er-api.com/v6/latest/BGN");
+    const j1 = await r1.json();
+    const bgn_usd = j1.rates.USD;
+
+    const r2 = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd");
+    const j2 = await r2.json();
+    const btc_usd = j2.bitcoin.usd;
+
+    usdprice.innerText = `1 BGN = ${bgn_usd.toFixed(4)} USD`;
+    btcprice.innerText = `1 BGN = ${(bgn_usd / btc_usd).toFixed(8)} BTC`;
+  }catch{
+    usdprice.innerText = "Данните не са налични";
+    btcprice.innerText = "";
+  }
+}
+loadPrices(); setInterval(loadPrices,60000);
+</script>
+
+</body>
+</html>
