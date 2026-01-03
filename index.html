@@ -4,132 +4,132 @@
   <meta charset="utf-8">
   <title>BGN Token — Bulgarian Lev Legacy before Euro 2026</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Preserving the Bulgarian Lev (BGN) before its politically imposed transition to the Euro in 2026. A cultural and monetary timestamp archived on the blockchain.">
+  <meta name="description" content="Preserving the Bulgarian Lev (BGN). A cultural and monetary timestamp archived on the blockchain after its politically imposed replacement by the Euro in 2026.">
   <meta name="keywords" content="BGN,Bulgarian Lev,Euro 2026,BGN token,blockchain,Bulgaria currency history">
-  
+
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "CreativeWork",
-  "name": "BGN Token — Bulgarian Lev Legacy before Euro 2026",
-  "inLanguage": "en",
-  "about": "Preserving the Bulgarian Lev (BGN) before its politically imposed transition to the Euro in 2026.",
-  "keywords": "BGN,Bulgarian Lev,Euro 2026,BGN token,blockchain,Bulgaria currency history",
-  "description": "A cultural and monetary timestamp archived on the blockchain documenting the final era of the BGN.",
-  "url": "https://www.bgntoken.com/"
-}
-</script>
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "BGN Token — Bulgarian Lev Legacy",
+    "inLanguage": "en",
+    "about": "Preserving the Bulgarian Lev (BGN) after its politically imposed replacement by the Euro in 2026.",
+    "keywords": "BGN,Bulgarian Lev,Euro 2026,BGN token,blockchain,Bulgaria currency history",
+    "description": "A cultural and monetary timestamp archived on the blockchain documenting the post-currency era of the BGN.",
+    "url": "https://www.bgntoken.com/"
+  }
+  </script>
 
-  
   <link rel="canonical" href="https://bgntoken.com/">
-  <style>
-  :root { --muted:#666; }
-  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:#fff;color:#111;margin:0;padding:48px;font-size:18px;line-height:1.45;max-width:720px}
-  h1{margin:0 0 24px 0;font-size:28px;font-weight:600}
-  a{color:inherit}
-  .links a{display:block;margin:8px 0;padding:6px 0;text-decoration:none;border-bottom:1px solid #000;max-width:340px}
-  footer{margin-top:48px;font-size:13px;color:#555}
-</style>
 
+  <style>
+    :root { --muted:#666; }
+    body{
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      background:#fff;color:#111;margin:0;padding:48px;
+      font-size:18px;line-height:1.45;max-width:720px
+    }
+    h1{margin:0 0 24px 0;font-size:28px;font-weight:600}
+    a{color:inherit}
+    .links a{display:block;margin:8px 0;padding:6px 0;text-decoration:none;border-bottom:1px solid #000;max-width:340px}
+    footer{margin-top:48px;font-size:13px;color:#555}
+    .archive-box{
+      display:inline-block;
+      padding:14px 16px;
+      border:1px solid #111;
+      background:#faf6ef;
+      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+      font-size:18px;
+      letter-spacing:.5px;
+      margin-top:16px;
+    }
+  </style>
 </head>
 
 <body>
-  <h1>BGN Token</h1>
-  <p>A small, minimal on-chain memorial to the Bulgarian Lev — a currency that will be replaced by the Euro in January 2026.</p>
 
-  <p>This is not utility. Not finance. Not a roadmap.</p>
-  <p>Just a digital artifact.</p>
+<h1>BGN Token</h1>
 
-  <div class="links" style="margin-top:32px">
-  <a href="https://pump.fun/coin/2sJYnBQFaqE7QzDCk7XSfUXJAB9ywZT5PYMn3zkFEBCf" id="pump">BGN on pump.fun</a>
-  <a href="https://x.com/bgntoken" id="twitter">BGN on X (Twitter)</a>
+<p>A small, minimal on-chain memorial to the Bulgarian Lev — a currency replaced by the Euro in January 2026.</p>
+<p>This is not utility. Not finance. Not a roadmap.</p>
+<p>Just a digital artifact.</p>
+
+<div class="links" style="margin-top:32px">
+  <a href="https://pump.fun/coin/2sJYnBQFaqE7QzDCk7XSfUXJAB9ywZT5PYMn3zkFEBCf">BGN on pump.fun</a>
+  <a href="https://x.com/bgntoken">BGN on X (Twitter)</a>
   <a href="#" id="explorer">contract / explorer link</a>
 </div>
 
-  <p class="lead">Recording the last moments…</p>
-  <div id="timer" style="margin-top:1.5rem;font-size:1.6rem;font-weight:600;"></div>
+<p class="lead">The conversion moment has passed.</p>
+<p>The Euro replaced the Lev in the physical world.  
+The blockchain did not.</p>
 
-<script>
-const target = new Date("2026-01-01T00:00:00+01:00").getTime();
-setInterval(()=>{
-  const now   = Date.now();
-  const diff  = target - now;
-  if(diff <= 0){
-    document.getElementById("timer").innerText = "The conversion moment has arrived.";
-    return;
-  }
-  const days  = Math.floor(diff / (1000*60*60*24));
-  const hrs   = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
-  const mins  = Math.floor((diff % (1000*60*60)) / (1000*60));
-  const secs  = Math.floor((diff % (1000*60)) / 1000);
-  document.getElementById("timer").innerText =
-    `Days until euro conversion: ${days}d ${hrs}h ${mins}m ${secs}s`;
-},1000);
-</script>
+<p><strong>Time since BGN → EUR conversion</strong></p>
 
-  <p style="margin-top:.25rem;font-size:.95rem;color:var(--muted);">
-  Дни до политически наложеното въвеждане на еврото.
+<div class="archive-box" id="bgnClock">
+  <span id="days">000</span>d :
+  <span id="hours">00</span>h :
+  <span id="mins">00</span>m :
+  <span id="secs">00</span>s
+</div>
+
+<p style="margin-top:12px;color:var(--muted)">
+The longer it runs, the more the Lev becomes archive.
 </p>
 
-  <p style="margin-top:.2rem;font-size:1rem;color:var(--muted);font-weight:600;">
-  Еврото го налагат. Но левът ще остане в блокчейна.
+<p style="font-size:.9rem;color:var(--muted)">
+Еврото го наложиха.  
+Левът остана в блокчейна.
 </p>
 
-  <p style="margin-top:.2rem;font-size:.85rem;color:var(--muted);letter-spacing:1px;">
-  BGN-CHAIN-001
-</p>
+<p style="letter-spacing:1px;color:var(--muted)">BGN-CHAIN-001</p>
 
-  <p id="usdprice" style="margin-top:1rem;font-size:1.1rem;font-weight:600;"></p>
-
-<script>
-async function loadBGNUSD(){
-  try{
-    const r = await fetch("https://open.er-api.com/v6/latest/BGN");
-    const j = await r.json();
-    const rate = j.rates.USD;
-    document.getElementById("usdprice").innerText = `1 BGN = ${rate.toFixed(4)} USD`;
-  }catch(e){
-    document.getElementById("usdprice").innerText = "USD rate unavailable";
-  }
-}
-loadBGNUSD();
-setInterval(loadBGNUSD, 60000);
-</script>
-
- <p id="btcprice" style="margin-top:.5rem;font-size:1.1rem;font-weight:600;"></p>
-
-<script>
-async function loadBGNBTC(){
-  try{
-    // 1) BTC en USD
-    const r1 = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd");
-    const j1 = await r1.json();
-    const btc_usd = j1.bitcoin.usd;
-
-    // 2) BGN en USD
-    const r2 = await fetch("https://open.er-api.com/v6/latest/BGN");
-    const j2 = await r2.json();
-    const bgn_usd = j2.rates.USD;
-
-    // 3) 1 BGN en BTC = BGN/USD dividido entre BTC/USD
-    const bgn_btc = bgn_usd / btc_usd;
-
-    document.getElementById("btcprice").innerText = `1 BGN = ${bgn_btc.toFixed(8)} BTC`;
-  }catch(e){
-    document.getElementById("btcprice").innerText = "BTC rate unavailable";
-  }
-}
-loadBGNBTC();
-setInterval(loadBGNBTC, 60000);
-</script>
-
-
-  
+<p id="usdprice" style="margin-top:1rem;font-size:1.1rem;font-weight:600;"></p>
+<p id="btcprice" style="margin-top:.5rem;font-size:1.1rem;font-weight:600;"></p>
 
 <footer>
   <p>BGN — recorded on-chain as a cultural timestamp.</p>
   <p>Левът остава.</p>
 </footer>
+
+<script>
+const ANCHOR = new Date("2026-01-01T00:00:00Z");
+
+function tick(){
+  const now = new Date();
+  let diff = Math.max(0, now - ANCHOR);
+  const s = Math.floor(diff/1000);
+  const d = Math.floor(s/86400);
+  const h = Math.floor((s%86400)/3600);
+  const m = Math.floor((s%3600)/60);
+  const sec = s%60;
+
+  days.textContent = String(d).padStart(3,"0");
+  hours.textContent = String(h).padStart(2,"0");
+  mins.textContent = String(m).padStart(2,"0");
+  secs.textContent = String(sec).padStart(2,"0");
+}
+setInterval(tick,1000); tick();
+
+async function loadPrices(){
+  try{
+    const r1 = await fetch("https://open.er-api.com/v6/latest/BGN");
+    const j1 = await r1.json();
+    const bgn_usd = j1.rates.USD;
+
+    const r2 = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd");
+    const j2 = await r2.json();
+    const btc_usd = j2.bitcoin.usd;
+
+    usdprice.innerText = `1 BGN = ${bgn_usd.toFixed(4)} USD`;
+    btcprice.innerText = `1 BGN = ${(bgn_usd / btc_usd).toFixed(8)} BTC`;
+  }catch{
+    usdprice.innerText = "Price data unavailable";
+    btcprice.innerText = "";
+  }
+}
+loadPrices(); setInterval(loadPrices,60000);
+</script>
 
 </body>
 </html>
